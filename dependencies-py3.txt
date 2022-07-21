@@ -1,0 +1,11 @@
+# LIST YOUR PYTHON3 PACKAGES HERE
+
+gin-config
+wandb
+plotly
+opencv-python==4.5.5.64
+imageio
+imageio-ffmpeg
+pydot
+
+mup

@@ -1,0 +1,140 @@
+import envs
+import nlimb
+import rl
+import tasks
+import utils
+
+# Parameters for AdamW:
+# ==============================================================================
+AdamW.amsgrad = False
+AdamW.betas = [0.9, 0.999]
+AdamW.eps = 1e-05
+AdamW.weight_decay = 0.018
+
+# Parameters for nlimb/AdamW:
+# ==============================================================================
+nlimb/AdamW.amsgrad = False
+nlimb/AdamW.betas = [0.9, 0.999]
+nlimb/AdamW.eps = 1e-05
+nlimb/AdamW.weight_decay = 0.018
+
+# Parameters for basic_transformer_policy:
+# ==============================================================================
+basic_transformer_policy.activation_fn = @nn.ELU
+basic_transformer_policy.dmodel = 256
+basic_transformer_policy.include_terrain = True
+basic_transformer_policy.nheads = 4
+basic_transformer_policy.nlayers = 1
+basic_transformer_policy.num_terrain_heads = 1
+basic_transformer_policy.pos_encoding = \
+    @networks.ConcatLearnedTreePositionalEncoding
+basic_transformer_policy.use_mup = True
+
+# Parameters for Checkpointer:
+# ==============================================================================
+Checkpointer.ckpt_period = 1000000
+Checkpointer.format = '{:012d}'
+
+# Parameters for ConcatLearnedTreePositionalEncoding:
+# ==============================================================================
+ConcatLearnedTreePositionalEncoding.dropout = 0.0
+
+# Parameters for DesignTransformer:
+# ==============================================================================
+DesignTransformer.dmodel = 64
+DesignTransformer.nheads = 4
+DesignTransformer.nlayers = 1
+
+# Parameters for DiagGaussian:
+# ==============================================================================
+DiagGaussian.constant_log_std = True
+DiagGaussian.log_std_max = 2
+DiagGaussian.log_std_min = -20
+
+# Parameters for ELU:
+# ==============================================================================
+ELU.alpha = 1.0
+ELU.inplace = False
+
+# Parameters for FeedForwardNet:
+# ==============================================================================
+# None.
+
+# Parameters for HexGrammarDesignDist:
+# ==============================================================================
+HexGrammarDesignDist.model = @nlimb.DesignTransformer
+
+# Parameters for LearnedPositionalEncoding:
+# ==============================================================================
+LearnedPositionalEncoding.mult = 1.0
+
+# Parameters for NLIMB:
+# ==============================================================================
+NLIMB.batch_size = 2048
+NLIMB.clip_param = 0.2
+NLIMB.design_dist = @nlimb.HexGrammarDesignDist
+NLIMB.ent_coef = 0.02
+NLIMB.env = @envs.IsaacMixedXMLEnv
+NLIMB.kl_target = 0.0126
+NLIMB.learning_starts = 20480
+NLIMB.lr = 0.001
+NLIMB.lr_fac = 1.25
+NLIMB.max_grad_norm = 0.1
+NLIMB.max_lr = 0.1
+NLIMB.n_epochs = 2
+NLIMB.n_updates = 1
+NLIMB.optimizer = @nlimb/optim.AdamW
+NLIMB.rl_algorithm = @rl.PPO
+NLIMB.steps_per_design = 3000
+NLIMB.update_period = 4096
+NLIMB.xml_root = '/xmls'
+
+# Parameters for PPO:
+# ==============================================================================
+PPO.batch_size = 8192
+PPO.batches_per_update = 2
+PPO.bounds_coef = 100.0
+PPO.clip_param = 0.2
+PPO.ent_coef = 0.0
+PPO.epochs_per_rollout = 4
+PPO.eval_max_episode_length = 1000
+PPO.eval_num_episodes = 2048
+PPO.gamma = 0.99
+PPO.kl_decay_fac = 0.5
+PPO.kl_decay_period = 100000000
+PPO.kl_lr_update_fac = 1.1
+PPO.kl_target = 0.04
+PPO.lambda_ = 0.95
+PPO.lr = 0.0003
+PPO.max_grad_norm = 1.0
+PPO.max_lr = 0.001
+PPO.min_lr = 1e-06
+PPO.norm_advantages = True
+PPO.norm_observations = True
+PPO.norm_values = True
+PPO.num_recording_envs = 0
+PPO.optimizer = @optim.AdamW
+PPO.policy_fn = @rl.basic_transformer_policy
+PPO.record_viewer = True
+PPO.reward_scale = 0.01
+PPO.rollout_length = 128
+PPO.use_clipped_value_loss = True
+PPO.use_masked_obs_norm = True
+PPO.vf_coef = 3.7
+
+# Parameters for train:
+# ==============================================================================
+train.algorithm = @nlimb.NLIMB
+train.eval = True
+train.eval_period = 1000000000
+train.logdir = '/exps/nlimb'
+train.make_logdir_unique = True
+train.maxseconds = None
+train.maxt = 1000000000
+train.save_period = 50000000
+train.seed = 0
+
+# Parameters for wandb_init:
+# ==============================================================================
+wandb_init.entity = 'chipschaff'
+wandb_init.project = 'isaac_gym'

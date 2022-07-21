@@ -1,0 +1,36 @@
+# LIST YOUR APT PACKAGES HERE
+
+ffmpeg
+
+
+## Xserver packages
+# dbus
+dbus
+
+# xorg and video dummy
+xorg-video-abi-24
+xserver-xorg-video-dummy
+
+# openGL utils
+mesa-utils
+
+# vulkan utils
+libvulkan1
+mesa-vulkan-drivers
+vulkan-utils
+
+# other libs
+libxv1
+libxtst6
+libglu1-mesa
+kmod
+
+# mujoco rendering deps
+libglfw3
+libglew2.1
+
+# graph grammar utils
+graphviz
+
+# for profiling
+nsight-systems
