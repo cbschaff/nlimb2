@@ -18,7 +18,7 @@ Our code relies on [Docker](https://www.docker.com/get-started) and the docker w
 To use this codebase, follow these installation steps:
 
 1. Intstall Docker.
-2. Install cpk: `python -m pip install cpk==0.5.0`
+2. Install cpk: `python -m pip install cpk==0.5.1`
 3. Clone this repository.
 4. From the top level directory, run `cpk build` to build the docker container.
 5. You can enter the container by running `cpk run -M -f -X -- --runtime=nvidia`.
