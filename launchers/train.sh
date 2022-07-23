@@ -6,7 +6,7 @@
 
 # launching app
 launcher-xorg
-python -m rl.train "${*:2}"
+python -m rl.train $*
 
 
 # ----------------------------------------------------------------------------

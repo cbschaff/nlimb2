@@ -7,7 +7,7 @@
 # ckpt flag is optional and this will use the last checkpoint by default
 # launching app
 # launcher-xorg
-python -m nlimb.record "${@:2}"
+python -m nlimb.record $@
 
 
 # ----------------------------------------------------------------------------

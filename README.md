@@ -36,7 +36,7 @@ They are provided in the `exps` directory.
 
 
 - To visualize a trained model, run: `cpk run -M -f -X -L viz ++ exps/nlimb_walls --num_envs 1 -- --runtime=nvidia`
-- To record a video of a trained model, run: `cpk run -M -f -X -L record ++ exps/nlimb_walls --num_envs 1 -- --runtime=nvidia`
+- To record a video of a trained model, run: `cpk run -M -f -X -L record ++ exps/nlimb_walls -- --runtime=nvidia`
 
 Replace `exps/nlimb_walls` with another log directory as needed.
 
